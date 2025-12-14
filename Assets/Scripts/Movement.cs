@@ -2,15 +2,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [SerializeField] InputAction thrust;
+
+    private void Awake()
     {
-       
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        thrust.Enable();
     }
+
+    private void Update()
+    {
+        if (Time.time > 3.0f)
+        {
+            gameObject.SetActive(true);
+        }
+        if (thrust.IsPressed())
+        {
+            Debug.Log("Thrust has been pressed");
+        }
+    }
+
 }
