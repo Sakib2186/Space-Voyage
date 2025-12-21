@@ -7,11 +7,14 @@ public class Movement : MonoBehaviour
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustStength;
     [SerializeField] float rotationStength;
+    AudioSource ads;
     Rigidbody rb;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        ads = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -33,6 +36,11 @@ public class Movement : MonoBehaviour
         if (thrust.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrustStength * Time.fixedDeltaTime);
+            playAudio();
+        }
+        else
+        {
+            ads.Stop();
         }
 
     }
@@ -61,5 +69,12 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = false;
     }
 
+    private void playAudio()
+    {
+        if (!ads.isPlaying)
+        {
+            ads.Play();
+        }
+    }
 
 }
