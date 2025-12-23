@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -20,7 +21,14 @@ public class CollisionHandler : MonoBehaviour
                 break;
             default:
                 Debug.Log("You exploded");
+                ReloadLevel();
                 break;
         }
+    }
+
+    private void ReloadLevel()
+    {
+        string currentScene = SceneManager.GetActiveScene().name; //Or can use buildIndex to get the index number of the scene
+        SceneManager.LoadScene(currentScene);
     }
 }
