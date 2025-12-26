@@ -14,7 +14,7 @@ public class LoadLevel : MonoBehaviour
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextSceneNumber = currentScene + 1;
-        if (nextSceneNumber == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneNumber == SceneManager.sceneCountInBuildSettings) //This property returns the count of the number of scenes in my buildProfile.
         {
             nextSceneNumber = 0;
         }
