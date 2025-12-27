@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadLevel : MonoBehaviour
 {
+    [SerializeField] float delayLevelLoading = 2f;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Finish")
         {
-            loadNextLevel();
+            //todo add sfx and particles
+            StartSuccessSequence();
+            
         }
+    }
+
+    private void StartSuccessSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("loadNextLevel", delayLevelLoading);
     }
 
     private void loadNextLevel()

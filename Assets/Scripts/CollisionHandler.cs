@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float delayLevelReloading = 2f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision collision)
     {
@@ -21,9 +24,15 @@ public class CollisionHandler : MonoBehaviour
                 break;
             default:
                 Debug.Log("You exploded");
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
+    }
+
+    private void StartCrashSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", delayLevelReloading);
     }
 
     private void ReloadLevel()
