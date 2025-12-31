@@ -4,8 +4,12 @@ using UnityEngine.SceneManagement;
 public class LoadLevel : MonoBehaviour
 {
     [SerializeField] float delayLevelLoading = 2f;
+
+    bool isControllable = true;
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isControllable) { return; }
+
         if (collision.gameObject.tag == "Finish")
         {
             //todo add sfx and particles
@@ -16,6 +20,7 @@ public class LoadLevel : MonoBehaviour
 
     private void StartSuccessSequence()
     {
+        isControllable = false;
         GetComponent<Movement>().enabled = false;
         Invoke("loadNextLevel", delayLevelLoading);
     }

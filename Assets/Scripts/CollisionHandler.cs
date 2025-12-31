@@ -9,6 +9,8 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip crashAudio;
     AudioSource ads;
 
+    bool isControllable = true;
+
     private void Start()
     {
         ads = GetComponent<AudioSource>();
@@ -17,8 +19,8 @@ public class CollisionHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isControllable) { return; }
         GameObject collider = collision.gameObject;
-
         switch (collider.tag)
         {
             case "Friendly":
@@ -39,6 +41,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartCrashSequence()
     {
+        isControllable = false;
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", delayLevelReloading);
     }
@@ -51,9 +54,8 @@ public class CollisionHandler : MonoBehaviour
 
     private void PlayAudio(AudioClip audioSrc)
     {
-        if (!ads.isPlaying)
-        {
-            ads.PlayOneShot(audioSrc);
-        }
+        ads.Stop();
+        ads.PlayOneShot(audioSrc);
+
     }
 }
