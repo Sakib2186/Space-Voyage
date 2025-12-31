@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustStength;
     [SerializeField] float rotationStength;
+    [SerializeField] AudioClip mainEngine;
     AudioSource ads;
     Rigidbody rb;
 
@@ -74,7 +75,7 @@ public class Movement : MonoBehaviour
     {
         if (!ads.isPlaying)
         {
-            ads.Play();
+            ads.PlayOneShot(mainEngine);
         }
     }
 

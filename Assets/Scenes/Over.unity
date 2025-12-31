@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 144015326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.207922, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.208029, y: 2.293623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.207922, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.208029, y: 2.293623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -833,6 +833,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 749793715180976710, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
+      propertyPath: crashAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: ee2a30d48493e41419f5283244a7927a, type: 3}
+    - target: {fileID: 749793715180976710, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
+      propertyPath: finishAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 15b22a35830cc844b807abe211aa0a27, type: 3}
+    - target: {fileID: 749793715180976710, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
       propertyPath: delayLevelReloading
       value: 2
       objectReference: {fileID: 0}
@@ -879,6 +887,14 @@ PrefabInstance:
     - target: {fileID: 6643908324208891142, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
       propertyPath: m_Name
       value: PlayerRocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968668001896702237, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e2f3267593707d459548d501b4f878d, type: 3}
+    - target: {fileID: 7354042148081652013, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
+      propertyPath: m_Resource
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
