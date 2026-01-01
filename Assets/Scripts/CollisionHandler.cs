@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float delayLevelReloading = 2f;
-    [SerializeField] AudioClip finishAudio;
-    [SerializeField] AudioClip crashAudio;
+    [SerializeField] AudioClip successSFX;
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] ParticleSystem crashParticles;
     AudioSource ads;
 
     bool isControllable = true;
@@ -27,13 +28,12 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("You are friendly");
                 break;
             case "Finish":
-                PlayAudio(finishAudio);
+                PlayAudio(successSFX);
                 break;
             case "Fuel":
                 Debug.Log("You hit fuel");
                 break;
             default:
-                PlayAudio(crashAudio);
                 StartCrashSequence();
                 break;
         }
@@ -42,6 +42,8 @@ public class CollisionHandler : MonoBehaviour
     private void StartCrashSequence()
     {
         isControllable = false;
+        crashParticles.Play();
+        PlayAudio(crashSFX);
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", delayLevelReloading);
     }

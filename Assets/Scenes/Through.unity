@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9bd410247eca61747bdf5d081c78bca4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 144015326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.208093, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.207948, y: 2.293623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -580,8 +580,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
   delayLevelReloading: 2
-  finishAudio: {fileID: 8300000, guid: 15b22a35830cc844b807abe211aa0a27, type: 3}
-  crashAudio: {fileID: 8300000, guid: ee2a30d48493e41419f5283244a7927a, type: 3}
+  successSFX: {fileID: 0}
+  crashSFX: {fileID: 0}
+  crashParticles: {fileID: 0}
 --- !u!114 &264096179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadLevel
   delayLevelLoading: 2
+  successParticles: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +685,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.208093, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.207948, y: 2.293623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
