@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 144015326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.208013, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.207936, y: 2.330623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.208013, y: 2.293623, z: -10}
+  m_LocalPosition: {x: -10.207936, y: 2.330623, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -534,7 +534,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 3000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -820,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2019167165498549128, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.393
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 2019167165498549128, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -858,10 +858,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRocket
       objectReference: {fileID: 0}
-    - target: {fileID: 7530022401050539158, guid: 9ac687bec2e274f4492d62c137c136c4, type: 3}
-      propertyPath: InitialModule.size3D
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -879,17 +875,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaunchPad
       objectReference: {fileID: 0}
-    - target: {fileID: 7206766372647721873, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
-      propertyPath: m_TagString
-      value: Friendly
-      objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.18
       objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.z

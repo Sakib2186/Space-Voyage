@@ -7,7 +7,10 @@ public class Movement : MonoBehaviour
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustStength;
     [SerializeField] float rotationStength;
-    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip mainEngineSFX;
+    [SerializeField] ParticleSystem rocketThrust;
+    [SerializeField] ParticleSystem leftThrust;
+    [SerializeField] ParticleSystem rightThrust;
     AudioSource ads;
     Rigidbody rb;
 
@@ -37,11 +40,16 @@ public class Movement : MonoBehaviour
         if (thrust.IsPressed())
         {
             rb.AddRelativeForce(Vector3.up * thrustStength * Time.fixedDeltaTime);
+            if(!rocketThrust.isPlaying)
+            {
+                rocketThrust.Play();
+            }
             playAudio();
         }
         else
         {
             ads.Stop();
+            rocketThrust.Stop();
         }
 
     }
@@ -53,12 +61,33 @@ public class Movement : MonoBehaviour
             if (rotationInput < 0)
             {
                 ApplyRotation(rotationStength);
+                if (!rightThrust.isPlaying)
+                {
+                    leftThrust.Stop();
+                    rightThrust.Play();
+                }
+
+            }
+            else if(rotationInput > 0)
+            {
+                ApplyRotation(-rotationStength);
+                if (!leftThrust.isPlaying)
+                {
+                    rightThrust.Stop();
+                    leftThrust.Play();
+                }
+
             }
             else
             {
-                ApplyRotation(-rotationStength);
+                rightThrust.Stop();
+                leftThrust.Stop();
             }
-            
+        }
+        else
+        {
+            rightThrust.Stop();
+            leftThrust.Stop();
         }
 
     }
@@ -75,7 +104,7 @@ public class Movement : MonoBehaviour
     {
         if (!ads.isPlaying)
         {
-            ads.PlayOneShot(mainEngine);
+            ads.PlayOneShot(mainEngineSFX);
         }
     }
 
