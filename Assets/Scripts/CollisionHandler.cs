@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
@@ -17,6 +18,25 @@ public class CollisionHandler : MonoBehaviour
         ads = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        RespondToDebugKey();
+    }
+
+    private void RespondToDebugKey()
+    {
+        if (Keyboard.current.lKey.isPressed)
+        {
+            int currentLevel = SceneManager.GetActiveScene().buildIndex;
+            int nextLevel = currentLevel + 1;
+            if (nextLevel == SceneManager.sceneCountInBuildSettings)
+            {
+                nextLevel = 0;
+            }
+            SceneManager.LoadScene(nextLevel);
+            
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision collision)
     {
