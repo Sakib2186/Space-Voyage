@@ -12,6 +12,7 @@ public class CollisionHandler : MonoBehaviour
     AudioSource ads;
 
     bool isControllable = true;
+    bool isCollidable = true;
 
     private void Start()
     {
@@ -20,27 +21,36 @@ public class CollisionHandler : MonoBehaviour
 
     private void Update()
     {
-        RespondToDebugKey();
+        RespondToDebugKeys();
     }
 
-    private void RespondToDebugKey()
+    private void RespondToDebugKeys()
     {
-        if (Keyboard.current.lKey.isPressed)
+        if (Keyboard.current.lKey.wasPressedThisFrame)
         {
-            int currentLevel = SceneManager.GetActiveScene().buildIndex;
-            int nextLevel = currentLevel + 1;
-            if (nextLevel == SceneManager.sceneCountInBuildSettings)
-            {
-                nextLevel = 0;
-            }
-            SceneManager.LoadScene(nextLevel);
-            
+            LoadNextLevel();
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            isCollidable = !isCollidable;
         }
     }
+
+    private static void LoadNextLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int nextLevel = currentLevel + 1;
+        if (nextLevel == SceneManager.sceneCountInBuildSettings)
+        {
+            nextLevel = 0;
+        }
+        SceneManager.LoadScene(nextLevel);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isControllable) { return; }
+        if (!isControllable || !isCollidable) { return; }
         GameObject collider = collision.gameObject;
         switch (collider.tag)
         {
