@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Pad Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7206766372647721873, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.97
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71
+      value: 8.02
       objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8018733326428111147, guid: 76904b3d570d91f4b9f447e2547f7412, type: 3}
       propertyPath: m_LocalRotation.w
