@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Oscillator : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Oscillator : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
         movementFactor = Mathf.PingPong(Time.time * speed,1f);
         transform.position = Vector3.Lerp(startPosition, endPosition, movementFactor); //movement factor is how far along the journey we are
     }
