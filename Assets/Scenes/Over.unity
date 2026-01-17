@@ -278,6 +278,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e93624d4dd9704e9007c044f3fcd97, type: 3}
+--- !u!114 &2378863729184844160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2213352485400297661, guid: 78e93624d4dd9704e9007c044f3fcd97, type: 3}
+  m_PrefabInstance: {fileID: 2378863729184844159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &2807794968447594967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,6 +297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 749793715180976710, guid: dc2f7c500e46f61418a4e4b97261db27, type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 2378863729184844160}
     - target: {fileID: 2019167165498549128, guid: dc2f7c500e46f61418a4e4b97261db27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.299

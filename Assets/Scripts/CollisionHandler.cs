@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -9,19 +10,27 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip successSFX;
     [SerializeField] AudioClip crashSFX;
     [SerializeField] ParticleSystem crashParticles;
-    AudioSource ads;
+    [SerializeField] int maxLives;
+    [SerializeField] TextMeshProUGUI livesText;
 
+    AudioSource ads;
+    static int currentLives;
     bool isControllable = true;
     public static bool isCollidable = true;
 
     private void Start()
     {
         ads = GetComponent<AudioSource>();
+        if (currentLives <= 0)
+        {
+            currentLives = maxLives;
+        }
+        UpdateLivesUI();
     }
 
     private void Update()
     {
-        RespondToDebugKeys();
+        //RespondToDebugKeys();
     }
 
     private void RespondToDebugKeys()
@@ -71,6 +80,8 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartCrashSequence()
     {
+        currentLives--;
+        UpdateLivesUI();
         isControllable = false;
         crashParticles.Play();
         PlayAudio(crashSFX);
@@ -80,8 +91,15 @@ public class CollisionHandler : MonoBehaviour
 
     private void ReloadLevel()
     {
-        string currentScene = SceneManager.GetActiveScene().name; //Or can use buildIndex to get the index number of the scene
-        SceneManager.LoadScene(currentScene);
+        if (currentLives > 0)
+        {
+            string currentScene = SceneManager.GetActiveScene().name; //Or can use buildIndex to get the index number of the scene
+            SceneManager.LoadScene(currentScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void PlayAudio(AudioClip audioSrc)
@@ -89,5 +107,10 @@ public class CollisionHandler : MonoBehaviour
         ads.Stop();
         ads.PlayOneShot(audioSrc);
 
+    }
+
+    private void UpdateLivesUI()
+    {
+        livesText.text = currentLives.ToString();
     }
 }
